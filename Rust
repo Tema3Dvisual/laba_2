@@ -1,0 +1,29 @@
+fn is_cyclic_rotation(s: &str, t: &str) -> bool {
+    // Проверка на равенство длин
+    if s.len() != t.len() {
+        return false;
+    }
+
+    // Конкатенация s + s
+    let s_concat = s.to_string() + s;
+
+    // Проверка, является ли t подстрокой sConcat
+    s_concat.contains(t)
+}
+
+fn main() {
+    let s1 = "waterbottle";
+    let t1 = "erbottlewat";
+    let result1 = is_cyclic_rotation(s1, t1);
+    println!("Строка T является циклическим сдвигом строки S: {}", if result1 { "Yes" } else { "No" });
+
+    let s2 = "waterbottle";
+    let t2 = "lewaterbott";
+    let result2 = is_cyclic_rotation(s2, t2);
+    println!("Строка T является циклическим сдвигом строки S: {}", if result2 { "Yes" } else { "No" });
+
+    let s3 = "abc";
+    let t3 = "cba";
+    let result3 = is_cyclic_rotation(s3, t3);
+    println!("Строка T является циклическим сдвигом строки S: {}", if result3 { "Yes" } else { "No" });
+}
